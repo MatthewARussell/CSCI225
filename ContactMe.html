@@ -1,28 +1,42 @@
 <!DOCTYPE html>
+<html>
 
-<form name="feedback">
-    <fieldset>
-        <legend>Feedback</legend>
-        <p>
-        User's first name
-        <input type="text" placeholder="anonymous" name="fname" required>
-        User's last name
-        <input type="text" placeholder="anonymous" name="lname" required>
-        <br>
-        User's email address
-        <input type="email" name="mail" placeholder="name@domain.com">
-        <br>
-        Would you reccomend this website?<br>
-        <input type="radio" name="radiograding" value="yes" checked >Yes
-        <input type="radio" name="radiograding" value="no">No
-        <br>
-        What is your favorite
-        </p>
-    </fieldset>
-</form>
+<body>
 
 
+    <form name="feedback">
+        <fieldset>
+            <legend>Feedback</legend>
+            <p>
+                <label> First name:
+                    <input type="text" placeholder="anonymous" name="fname" required></label>
+                <label>Last name:
+                    <input type="text" placeholder="anonymous" name="lname" required></label>
+                <br><br>
+                <label>Email address:
+                    <input type="email" name="mail" placeholder="name@domain.com"></label>
+                <br><br>
+                <label> Would you reccomend this website?<br>
+                    <input type="radio" name="radiograding" value="yes" checked>Yes
+                    <input type="radio" name="radiograding" value="no">No</label>
+                <br><br>
+                What is your favorite website?
+                <select name="selectbox" id="selectbox">
+                    <option value="google" selected>Google</option>
+                    <option value="facebook">Facebook</option>
+                    <option value="twitter">Twitter</option>
+                    <option value="duckgo">DuckDuckGo</option>
+                </select><br><br>
+                Rating:
+                <input name="rating" type="range" min="1" max="10">
+                <br><br>
 
+            </p>
+        </fieldset>
+    </form>
+
+
+</body>
 
 
 
