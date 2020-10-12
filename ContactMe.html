@@ -2,58 +2,107 @@
 <html lang="en">
 
 <head>
+
     <title>Contact Me</title>
-    <style>
-        .video {
-            text-align: center;
-            border:  solid black 0px;
-        }
-    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+
 </head>
 
 <body>
+    <div id="nav" class="navbar navbar-expand-lg fixed-top navbar-light bg-warning font-weight-normal">
+        <ul class="list-inline mx-auto mb-0">
+            <li class="list-inline-item pl-5 pr-5">
+                <a href="https://www.usca.edu/" target="_blank">USCA Homepage</a>
+            </li>
+            <li class="list-inline-item pl-5 pr-5">
+                <a href="" target="_blank">Introduction Section</a>
+            </li>
+            <li class="list-inline-item pl-5 pr-5">
+                <a href="" target="_blank">Assignment Secion</a>
+            </li>
+            <li class="list-inline-item pl-5 pr-5">
+                <a href="">Contact Me</a>
+            </li>
+        </ul>
+    </div>
 
 
-    <form name="feedback">
-        <div class="video">
-            <iframe width="675" height="506" src="https://www.youtube.com/embed/J---aiyznGQ" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen></iframe>
+    <div class="float-left mt-5 pt-5 p-4" style="border-radius: 3px;">
+        <iframe width="675" height="506" src="https://www.youtube.com/embed/J---aiyznGQ"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+    </div>
+
+    <br><br>
+
+    <form class="float-right">
+        <div class="form-group">
+            <label> First name:
+                <input type="text" class="form-control" placeholder="anonymous" name="fname" required></label>
+            <label>Last name:
+                <input type="text" class="form-control" placeholder="anonymous" name="lname" required></label>
+            <br>
         </div>
-        <fieldset>
-            <legend>Feedback</legend>
-            <p>
-                <label> First name:
-                    <input type="text" placeholder="anonymous" name="fname" required></label>
-                <label>Last name:
-                    <input type="text" placeholder="anonymous" name="lname" required></label>
-                <br><br>
-                <label>Email address:
-                    <input type="email" name="mail" placeholder="name@domain.com"></label>
-                <br><br>
-                 Would you reccomend this website?<br>
-                    <input type="radio" name="radiograding" value="yes" checked>Yes
-                    <input type="radio" name="radiograding" value="no">No
-                <br><br>
-                What is your favorite website?
-                <select name="selectbox" id="selectbox">
-                    <option value="google" selected>Google</option>
-                    <option value="facebook">Facebook</option>
-                    <option value="twitter">Twitter</option>
-                    <option value="duckgo">DuckDuckGo</option>
-                </select><br><br>
-                Rating:
-                <input name="rating" type="range" min="1" max="10">
-                <br><br>
-                Additional comments:<br>
-                <textarea name="comment" rows="10" cols="100" maxlength="500"
-                    placeholder="You liked that cat video didn't you ;)"></textarea>
-                <br><br>
-                <input type="submit" value="Submit">
-                <input type="reset" name="Reset" id="Reset">
-            </p>
-        </fieldset>
+        <div class="form-group">
+            <label for="inputPassword5">Password</label>
+         <input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock">
+        
+            <small class="form-text text-muted"> 
+                Your password must be 8-20 characters long, contain letters and numbers, and must not contain spaces, special characters, or emoji.</small>
+        </div>
+        
+        <div class="form-group"></div>
+        <label for="email">Email address:</label>
+        <input type="email" class="form-control" id="email" name="mail" placeholder="name@domain.com">
+        </div>
+
+        <div class="form-check form-check-inline m-1">
+            <label class="form-check-label p-1" for="inlineRadio1">Would you recomend this website? </label>
+            <input class="form-check-input p-1" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
+            <label class="form-check-label p-1" for="inlineRadio1">YES</label>
+
+            <input class="form-check-input p-1" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
+            <label class="form-check-label p-1" for="inlineRadio2">NO</label>
+        </div>
+
+        <div class="form-group">
+            What is your favorite website?
+            <select class="form-control" name="selectbox" id="selectbox">
+                <option value="google" selected>Google</option>
+                <option value="facebook">Facebook</option>
+                <option value="twitter">Twitter</option>
+                <option value="duckgo">DuckDuckGo</option>
+            </select><br>
+        </div>
+
+        <div class="form-group">
+            Rating:
+            <input class="form-range" name="rating" type="range" min="1" max="10">
+            <br>
+        </div>
+
+        <div class="form-group">
+            Additional comments:<br>
+            <textarea name="comment" class="form-control" rows="10" cols="100" maxlength="500"
+                placeholder="You liked that cat video didn't you ;)"></textarea>
+            <br>
+        </div>
+
+        <input type="submit" value="Submit">
+        <input type="reset" name="Reset" id="Reset">
+        </p>
+
     </form>
+
 
 
 </body>
