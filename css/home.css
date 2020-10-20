@@ -104,15 +104,16 @@ td {
     z-index: 2;
     position: absolute;
     right: 0px;
-    top: -9px;
-    padding: 395px 269px 18px 1%;
+    top: 0px;
+    left: 1049px;
+    padding: 386px 265px 0px 1%;
     border-bottom: 3px solid white;
 }
 .portfolio{
     border-right: 3px solid white;
     padding: 0% 0% 0% 1%;
     position: relative;
-    top: 386px;
+    top: 404px;
     left: -8px;
     right: 40px;
     margin-right: 447px;

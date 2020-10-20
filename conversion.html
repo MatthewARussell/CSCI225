@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>
+    Unit Conversion Calculator
+</title>
+
+<body>
+    <p style="text-align: center;font-size: 20pt;"><b>Unit Conversion Calculator-Length</b></p>
+    <form style="text-align: center;">
+        <input id="user" type="text">
+        <select name="selectbox1" id="selectbox1">
+            <option value="Foot">Foot</option>
+            <option value="Meter">Meter</option>
+            <option value="Inch">Inch</option>
+        </select>
+        =
+        <input id="result" value="">
+        <select name="selectbox2" id="selectbox2">
+            <option value="Foot">Foot</option>
+            <option value="Meter">Meter</option>
+            <option value="Inch">Inch</option>
+        </select>
+
+    </form>
+    <p style="text-align: center;font-size: 20pt;"><b>Unit Conversion Calculator-Length</b></p>
+    <form style="text-align: center;">
+        <input id="user1" type="text">
+        <select name="selectbox3" id="selectbox3">
+            <option value="Foot">Foot</option>
+            <option value="Meter">Meter</option>
+            <option value="Inch">Inch</option>
+        </select>
+        =
+        <input id="result1" value="">
+        <select name="selectbox4" id="selectbox4">
+            <option value="Foot">Foot</option>
+            <option value="Meter">Meter</option>
+            <option value="Inch">Inch</option>
+        </select>
+    <button type="button" id="convert">Convert</button>
+    </form>
+    
+    <script>
+        document.getElementById('convert').addEventListener('click', Calculator);
+        function Calculator() {
+            var x = document.getElementById("user").value;
+            var x1 = document.getElementById("selectbox1").value;
+            var y1 = document.getElementById("selectbox2").value;
+            var y = document.getElementById("result");
+            var xx = document.getElementById("user1").value;
+            var x2 = document.getElementById("selectbox3").value;
+            var y2 = document.getElementById("selectbox4").value;
+            var yy = document.getElementById("result1");
+            if (x1 == y1) {
+                y.setAttribute('value', x);
+            }
+            if (x1 == "Foot" && y1 == "Meter") {
+                var z = x / 3.281;
+                y.setAttribute('value', z);
+            }
+            if (x1 == "Meter" && y1 == "Foot") {
+                var z = x * 3.281;
+                y.setAttribute('value', z);
+            }
+            if (x1 == "Inch" && y1 == "Foot") {
+                var z = x / 12;
+                y.setAttribute('value', z);
+            }
+            if (x1 == "Foot" && y1 == "Inch") {
+                var z = x * 12;
+                y.setAttribute('value', z);
+            }
+            if (x1 == "Inch" && y1 == "Meter") {
+                var z = x / 39.37;
+                y.setAttribute('value', z);
+            }
+            if (x1 == "Meter" && y1 == "Inch") {
+                var z = xx * 39.37;
+                y.setAttribute('value', z);
+            }//-------------------------------------------------------------------------------------------
+            if (x2 == y2) {
+                yy.setAttribute('value', xx);
+            }
+            if (x2 == "Foot" && y2 == "Meter") {
+                var z = xx / 3.281;
+                yy.setAttribute('value', z);
+            }
+            if (x2 == "Meter" && y2 == "Foot") {
+                var z = xx * 3.281;
+                yy.setAttribute('value', z);
+            }
+            if (x2 == "Inch" && y2 == "Foot") {
+                var z = xx / 12;
+                yy.setAttribute('value', z);
+            }
+            if (x2 == "Foot" && y2 == "Inch") {
+                var z = xx * 12;
+                yy.setAttribute('value', z);
+            }
+            if (x2 == "Inch" && y2 == "Meter") {
+                var z = xx / 39.37;
+                yy.setAttribute('value', z);
+            }
+            if (x2 == "Meter" && y2 == "Inch") {
+                var z = xx * 39.37;
+                yy.setAttribute('value', z);
+            }
+        }
+    </script>
+
+
+
+</body>
+
+
+
+
+
+
+</html>
