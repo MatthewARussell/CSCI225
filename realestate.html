@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <style>
+    <style id="style">
         body {
             background-image: url("../../matth/CSCI225/img/Estate.jpg");
             background-repeat: no-repeat;
@@ -70,7 +70,6 @@
 
         #table {
             display: none;
-            border: solid black 1pt;
             padding: 1% 2%;
             margin: 5% 0% 0% 55%;
             background: white;
@@ -80,9 +79,13 @@
             position: absolute;
             border: solid 1px black;
         }
-        tr,td {
-            border:solid black 1pt;
-            padding: 2% 5% 1% 2%;}
+        td {
+            padding: 2% 5% 1% 2%;
+            border: solid 1px black;
+        }
+        
+            
+           
         
           
         
@@ -94,7 +97,7 @@
 
         <ul>Buy</ul>
         <ul>Sale</ul>
-        <ul><a type="button" onclick="document.getElementById('box').style.display = 'block'; document.getElementById('table').style.display = 'none'">Loan</a></ul>
+        <ul><a type="button" onclick="show()">Loan</a></ul>
         <ul>About</ul>
 
 
@@ -167,9 +170,15 @@
     <script> 
     document.getElementById("button").addEventListener('click', LoanCal);
         
-       
+    function show(){
+        document.getElementById('box').style.display = 'block'; 
+        document.getElementById('table').style.display = 'none';
+
+
+       }
        
         function LoanCal() {
+            
             document.getElementById('box').style.display = "none";
             document.getElementById('table').style.display = "block";
 
@@ -201,7 +210,7 @@
                     interest += interestPerMonth;
                     prinPeryear += Principle;
                 }
-                table += "<tr class='loantable'> <td>" + startyear + "</td> <td> $" + interest.toFixed(2) + "</td> <td> $" + prinPeryear.toFixed(2) + "</td> <td> $" +
+                table += "<tr> <td>" + startyear + "</td> <td> $" + interest.toFixed(2) + "</td> <td> $" + prinPeryear.toFixed(2) + "</td> <td> $" +
                     Balance.toFixed(2) + "</td> </tr>";
                 startyear++;
 
@@ -209,6 +218,7 @@
             table += "</table>";
 
             document.getElementById('table').innerHTML = table;
+
         }
 
     </script>
