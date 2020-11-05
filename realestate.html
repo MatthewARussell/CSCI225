@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <style>
+        body {
+            background-image: url("../../matth/CSCI225/img/Estate.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .loan {
+            margin: 0%;
+            color: white;
+            background-color: royalblue;
+            text-align: center;
+            padding: 0%;
+        }
+
+        .navbar {
+            margin: -1% 0% 0% -1%;
+            padding: 0% 0% 0% 2%;
+            display: inline-flex;
+            font-size: 20pt;
+            color: white;
+
+        }
+
+        #box {
+            display: none;
+            border: solid black 1pt;
+            padding: 0% 0% 0% 0%;
+            margin: 5% 0% 0% 55%;
+            background: white;
+            opacity: 0.8;
+            font-size: 10pt;
+            text-align: center;
+            position: absolute;
+        }
+
+        .navbar ul {
+            padding: 10%;
+            border-right: solid black 1pt;
+            background-color: blue;
+            margin: 0% 15% 0% -15%;
+        }
+
+        #button {
+            padding: 0px 200px;
+            background-color: blue;
+            color: white;
+        }
+
+        input[type=text]:focus {
+            background-color: lightblue;
+        }
+
+        input[type=text]::placeholder {
+            background-color: white;
+        }
+
+        input[type=text] {
+            background-color: lightyellow;
+        }
+
+        #button:hover {
+            background-color: royalblue;
+        }
+
+        #table {
+            display: none;
+            border: solid black 1pt;
+            padding: 1% 2%;
+            margin: 5% 0% 0% 55%;
+            background: white;
+            opacity: 0.8;
+            font-size: 10pt;
+            text-align: center;
+            position: absolute;
+            border: solid 1px black;
+        }
+        tr,td {
+            border:solid black 1pt;
+            padding: 2% 5% 1% 2%;}
+        
+          
+        
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+
+        <ul>Buy</ul>
+        <ul>Sale</ul>
+        <ul><a type="button" onclick="document.getElementById('box').style.display = 'block'; document.getElementById('table').style.display = 'none'">Loan</a></ul>
+        <ul>About</ul>
+
+
+    </div>
+
+
+
+    <div class="box" id="box">
+
+        <h1 class="loan">Loan Calculator</h1>
+
+        <form>
+            <br><br>
+            <Label>Loan Amount:</Label>
+            <input id="la" type="text">$<br><br>
+            <Label>Interest Rate:</Label>
+            <input id="rate" type="text">%<br><br>
+            <Label>Loan Term:</Label>
+            <input id="term" type="text">Years<br><br>
+            <Label>Start Date:</Label>
+            <select id='month'>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+            <select id='year'>
+                <option value="2000">2000</option>
+                <option value="2001">2001</option>
+                <option value="2002">2002</option>
+                <option value="2003">2003</option>
+                <option value="2004">2004</option>
+                <option value="2005">2005</option>
+                <option value="2006">2006</option>
+                <option value="2007">2007</option>
+                <option value="2008">2008</option>
+                <option value="2009">2009</option>
+                <option value="2010">2010</option>
+                <option value="2011">2011</option>
+                <option value="2012">2012</option>
+                <option value="2013">2013</option>
+                <option value="2014">2014</option>
+                <option value="2015">2015</option>
+                <option value="2016">2016</option>
+                <option value="2017">2017</option>
+                <option value="2018">2018</option>
+                <option value="2019">2019</option>
+                <option value="2020">2020</option>
+            </select><br><br>
+            <Label>Show results by:</Label>
+            <select id="result">
+                <option value="ryear">Years</option>
+                <option value="rmonth">Months</option>
+            </select><br><br>
+        </form>
+        <button id="button" type="button">Calculate</button>
+
+    </div>
+    <div id="table">
+
+    </div>
+    <script> 
+    document.getElementById("button").addEventListener('click', LoanCal);
+        
+       
+       
+        function LoanCal() {
+            document.getElementById('box').style.display = "none";
+            document.getElementById('table').style.display = "block";
+
+            var loanAmount = document.getElementById('la').value;
+            var interestRate = document.getElementById('rate').value;
+            var term = document.getElementById('term').value;
+            var startyear = document.getElementById('year').value;
+            var startmonth = document.getElementById('month').value;
+            var DateBy = document.getElementById('result').value;
+
+            var monthlyRate = interestRate / 100 / 12;
+            var monthlypayment = (loanAmount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -term * 12));
+            var interestPerMonth = loanAmount * monthlyRate;
+            var prinPerMonth = monthlypayment - interestPerMonth;
+
+
+            var table = "<table> <tr> <th>Date</th> <th>Interest</th> <th>Principle</th> <th>Balance</th></tr>";
+            var Principle = 0;
+            var Balance = 0;
+            for (var i = 0; i < term; i++) {
+                var interest = 0;
+                var prinPeryear = 0;
+                for (var x = 0; x < 12; x++) {
+                    interestPerMonth = loanAmount * monthlyRate;
+                    prinPerMonth = monthlypayment - interestPerMonth;
+                    Principle = prinPerMonth;
+                    loanAmount = loanAmount - Principle;
+                    Balance = loanAmount;
+                    interest += interestPerMonth;
+                    prinPeryear += Principle;
+                }
+                table += "<tr class='loantable'> <td>" + startyear + "</td> <td> $" + interest.toFixed(2) + "</td> <td> $" + prinPeryear.toFixed(2) + "</td> <td> $" +
+                    Balance.toFixed(2) + "</td> </tr>";
+                startyear++;
+
+            }
+            table += "</table>";
+
+            document.getElementById('table').innerHTML = table;
+        }
+
+    </script>
+
+</body>
+
+</html>
