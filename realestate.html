@@ -2,94 +2,8 @@
 <html lang="en">
 
 <head>
-    <style id="style">
-        body {
-            background-image: url("../../matth/CSCI225/img/Estate.jpg");
-            background-repeat: no-repeat;
-            background-size: cover;
-            background-attachment: fixed;
-        }
-
-        .loan {
-            margin: 0%;
-            color: white;
-            background-color: royalblue;
-            text-align: center;
-            padding: 0%;
-        }
-
-        .navbar {
-            margin: -1% 0% 0% -1%;
-            padding: 0% 0% 0% 2%;
-            display: inline-flex;
-            font-size: 20pt;
-            color: white;
-
-        }
-
-        #box {
-            display: none;
-            border: solid black 1pt;
-            padding: 0% 0% 0% 0%;
-            margin: 5% 0% 0% 55%;
-            background: white;
-            opacity: 0.8;
-            font-size: 10pt;
-            text-align: center;
-            position: absolute;
-        }
-
-        .navbar ul {
-            padding: 10%;
-            border-right: solid black 1pt;
-            background-color: blue;
-            margin: 0% 15% 0% -15%;
-        }
-
-        #button {
-            padding: 0px 200px;
-            background-color: blue;
-            color: white;
-        }
-
-        input[type=text]:focus {
-            background-color: lightblue;
-        }
-
-        input[type=text]::placeholder {
-            background-color: white;
-        }
-
-        input[type=text] {
-            background-color: lightyellow;
-        }
-
-        #button:hover {
-            background-color: royalblue;
-        }
-
-        #table {
-            display: none;
-            padding: 1% 2%;
-            margin: 5% 0% 0% 55%;
-            background: white;
-            opacity: 0.8;
-            font-size: 10pt;
-            text-align: center;
-            position: absolute;
-            border: solid 1px black;
-        }
-        td {
-            padding: 2% 5% 1% 2%;
-            border: solid 1px black;
-        }
-        
-            
-           
-        
-          
-        
-    </style>
+    <link rel="stylesheet" href="css/realestate.css">
+   
 </head>
 
 <body>
@@ -164,13 +78,17 @@
         <button id="button" type="button">Calculate</button>
 
     </div>
-    <div id="table">
+    <p id="monpay">
 
+    </p>
+    <div id="table">
+        
     </div>
     <script> 
     document.getElementById("button").addEventListener('click', LoanCal);
         
     function show(){
+        document.getElementById('monpay').style.display = 'none';
         document.getElementById('box').style.display = 'block'; 
         document.getElementById('table').style.display = 'none';
 
@@ -178,7 +96,7 @@
        }
        
         function LoanCal() {
-            
+            document.getElementById('monpay').style.display = 'block';
             document.getElementById('box').style.display = "none";
             document.getElementById('table').style.display = "block";
 
@@ -194,7 +112,7 @@
             var interestPerMonth = loanAmount * monthlyRate;
             var prinPerMonth = monthlypayment - interestPerMonth;
 
-
+            document.getElementById("monpay").innerHTML = "Monthly Payment: $" + monthlypayment.toFixed(2);
             var table = "<table> <tr> <th>Date</th> <th>Interest</th> <th>Principle</th> <th>Balance</th></tr>";
             var Principle = 0;
             var Balance = 0;
@@ -218,7 +136,8 @@
             table += "</table>";
 
             document.getElementById('table').innerHTML = table;
-
+           
+        
         }
 
     </script>
