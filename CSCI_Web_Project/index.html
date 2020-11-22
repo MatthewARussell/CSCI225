@@ -1,44 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="../CSCI_Web_Project/css/TTT.css">
 </head>
+
 <body>
     <div class="TTT" id="TTT">
         <table>
             <tr>
-                <td id="1">1</td>
-                <td id="2">1</td>
-                <td id="3">1</td>
+                <td id="0" onclick="clicked(0)">1</td>
+                <td id="1" onclick="clicked(1)">1</td>
+                <td id="2" onclick="clicked(2)">1</td>
             </tr>
             <tr>
-                <td id="4">1</td>
-                <td id="5">1</td>
-                <td id="6">1</td>
+                <td id="3" onclick="clicked(3)">1</td>
+                <td id="4" onclick="clicked(4)">1</td>
+                <td id="5" onclick="clicked(5)">1</td>
             </tr>
             <tr>
-                <td id="7">1</td>
-                <td id="8">1</td>
-                <td id="9">1</td>
+                <td id="6" onclick="clicked(6)">1</td>
+                <td id="7" onclick="clicked(7)">1</td>
+                <td id="8" onclick="clicked(8)">1</td>
             </tr>
         </table>
     </div>
     <script>
-        function TTT(){
-            var s1  = document.getElementById('1');
-            var s2  = document.getElementById('2');
-            var s3  = document.getElementById('3');
-            var s4  = document.getElementById('4');
-            var s5  = document.getElementById('5');
-            var s6  = document.getElementById('6');
-            var s7  = document.getElementById('7');
-            var s8  = document.getElementById('8');
-            var s9  = document.getElementById('9');
-            var clicked = false;
-
-            
-
+        var list = [0, 1, 2, 3, 4, 5, 6, 7, 8];
+        var c;
+        function clicked(i) {
+                console.log(i);
+            if (document.getElementById(i).innerHTML == "1") {
+                document.getElementById(i).innerHTML = "X";
+                document.getElementById(i).style.color = "black";
+                delete list[i];
+                c++;
+                if(c!=4){
+                computer(list);}
+            }
         }
+        function computer(list) {
+           
+            while(true){
+            var x = Math.floor((Math.random() * (9 - 1)));
+            if(x in list){
+                break;
+            }
+            
+            }
+            console.log("while done x= "+x);
+            for (var y = 0; y < list.length; y++) {
+                if (x == list[y]) {
+                    document.getElementById(y).innerHTML = "O";
+                    document.getElementById(y).style.color = "black";
+                    delete list[y];
+                    break;
+                }
+                 
+                
+            }console.log("comp is done");
+            console.log(list);
+        }
+        function num(){
+           return Math.floor((Math.random() * (9 - 1)));
+        }
+        
     </script>
 </body>
 
