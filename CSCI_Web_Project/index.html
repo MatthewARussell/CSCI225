@@ -1,70 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!-- Created by Matthew Russell -->
 <head>
     <link rel="stylesheet" href="../CSCI_Web_Project/css/TTT.css">
+    <link rel="stylesheet" href="../CSCI_Web_Project/css/match.css">
 </head>
 
 <body>
-    <div class="TTT" id="TTT">
-        <table>
+    <div id="TTT">
+        <table class="TTT">
             <tr>
-                <td id="0" onclick="clicked(0)">1</td>
-                <td id="1" onclick="clicked(1)">1</td>
-                <td id="2" onclick="clicked(2)">1</td>
+                <td id="0" class="red" onclick="clicked(0)">1</td>
+                <td id="1" class="red" onclick="clicked(1)">1</td>
+                <td id="2" class="red" onclick="clicked(2)">1</td>
             </tr>
             <tr>
-                <td id="3" onclick="clicked(3)">1</td>
-                <td id="4" onclick="clicked(4)">1</td>
-                <td id="5" onclick="clicked(5)">1</td>
+                <td id="3" class="red" onclick="clicked(3)">1</td>
+                <td id="4" class="red" onclick="clicked(4)">1</td>
+                <td id="5" class="red" onclick="clicked(5)">1</td>
             </tr>
             <tr>
-                <td id="6" onclick="clicked(6)">1</td>
-                <td id="7" onclick="clicked(7)">1</td>
-                <td id="8" onclick="clicked(8)">1</td>
+                <td id="6" class="red" onclick="clicked(6)">1</td>
+                <td id="7" class="red" onclick="clicked(7)">1</td>
+                <td id="8" class="red" onclick="clicked(8)">1</td>
             </tr>
+
         </table>
+        <button onClick="window.location.reload();">RESET</button>
+        <button onclick="color()">Change Color</button>
     </div>
-    <script>
-        var list = [0, 1, 2, 3, 4, 5, 6, 7, 8];
-        var c;
-        function clicked(i) {
-                console.log(i);
-            if (document.getElementById(i).innerHTML == "1") {
-                document.getElementById(i).innerHTML = "X";
-                document.getElementById(i).style.color = "black";
-                delete list[i];
-                c++;
-                if(c!=4){
-                computer(list);}
-            }
-        }
-        function computer(list) {
-           
-            while(true){
-            var x = Math.floor((Math.random() * (9 - 1)));
-            if(x in list){
-                break;
-            }
-            
-            }
-            console.log("while done x= "+x);
-            for (var y = 0; y < list.length; y++) {
-                if (x == list[y]) {
-                    document.getElementById(y).innerHTML = "O";
-                    document.getElementById(y).style.color = "black";
-                    delete list[y];
-                    break;
-                }
-                 
+    <div id="match">
+        <button type="button" onclick="ranimg(),setTimeout(show, 3000);">START GAME</button>
+        <button onclick="Mcolor()">Change Color</button>
+        <table class="match">
+            <tr>
+                <td id="m" onclick="match('i0',9)"><img id="i0" class="img" src="" alt=""></td>
+                <td id="m" onclick="match('i1',10)"><img id="i1" class="img" src="" alt=""></td>
+                <td id="m" onclick="match('i2',11)"><img id="i2" class="img" src="" alt=""></td>
+                <td id="m" onclick="match('i3',12)"><img id="i3" class="img" src="" alt=""></td>
                 
-            }console.log("comp is done");
-            console.log(list);
-        }
-        function num(){
-           return Math.floor((Math.random() * (9 - 1)));
-        }
-        
+            </tr>
+            <tr>
+                <td id="m" onclick="match('i4',13)"><img id="i4" class="img" src="" alt=""></td>
+                <td id="m" onclick="match('i5',14)"><img id="i5" class="img" src="" alt=""></td>
+                <td id="m" onclick="match('i6',15)"><img id="i6" class="img" src="" alt=""></td>
+                <td id="m" onclick="match('i7',16)"><img id="i7" class="img" src="" alt=""></td>
+                
+            </tr>
+            <tr>
+                <td id="m" onclick="match('i8',17)"><img id="i8" class="img" src="" alt=""></td>
+                <td id="m" onclick="match('i9',18)"><img id="i9" class="img" src="" alt=""></td>
+                <td id="m" onclick="match('i10',19)"><img id="i10" class="img" src="" alt=""></td>
+                <td id="m" onclick="match('i11',20)"><img id="i11" class="img" src="" alt=""></td>
+                
+            </tr>
+
+        </table>
+
+    </div>
+    <script src="../CSCI_Web_Project/js/TTT.js">
+    </script>
+    <script src="../CSCI_Web_Project/js/match.js">
     </script>
 </body>
 

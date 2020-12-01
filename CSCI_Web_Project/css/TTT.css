@@ -1,12 +1,17 @@
- table{
+ /* Created By Matthew Russell*/
+ .TTT{
     text-align: center;
-    font-size: 30px;
-    
-    
-   
+    font-size: 30px;}
+
+.blue{
+    color: blue;
+    background-color: blue;
+    width: 10%;
+    border: 1px solid black;
 }
-td{
-    color: white;
+.red{
+    color: red;
+    background-color: red;
     width: 10%;
     border: 1px solid black;
 }
